@@ -13,3 +13,4 @@ googlemaps
 django-allauth
 celery 
 redis
+gunicorn
