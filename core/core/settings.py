@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure--0v5&zwsq+y)^9ki45q4hxq361m)d*&n$_u$#69lxinesm-ilr
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -126,6 +126,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = "static/"
+import os
+
+# Tell Django where to store collected static files
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
@@ -154,7 +159,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
 EMAIL_HOST_USER = 'lightningiit123@gmail.com' 
-EMAIL_HOST_PASSWORD = 'your-email-password'  # Replace with your actual email password
+EMAIL_HOST_PASSWORD = 'kullrlothtsrzwcp'  # Replace with your actual email password
 
 # --- CELERY SETTINGS ---
 
@@ -178,4 +183,4 @@ CELERY_BEAT_SCHEDULE = {
     },
 }
 
-
+CSRF_TRUSTED_ORIGINS = ['https://medimate.onrender.com']
