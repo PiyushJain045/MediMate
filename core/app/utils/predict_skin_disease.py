@@ -4,7 +4,7 @@ from tensorflow.keras.models import load_model
 import os 
 from django.conf import settings
 
-MODEL_PATH = os.path.join(settings.BASE_DIR, 'Model', 'model.h5')
+MODEL_PATH = os.path.join(settings.BASE_DIR, 'model', 'model.h5')
 model = load_model(MODEL_PATH)
 
 class_names = ['Acne and Rosacea Photos',
