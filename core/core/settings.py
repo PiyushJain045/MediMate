@@ -154,7 +154,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
 EMAIL_HOST_USER = 'lightningiit123@gmail.com' 
-EMAIL_HOST_PASSWORD = 'your-email-password'  # Replace with your actual email password
+EMAIL_HOST_PASSWORD = 'kullrlothtsrzwcp'  # Replace with your actual email password
 
 # --- CELERY SETTINGS ---
 
@@ -174,7 +174,7 @@ from celery.schedules import crontab
 CELERY_BEAT_SCHEDULE = {
     'send-daily-appointment-reminders': {
         'task': 'app.tasks.send_appointment_reminders', # Path to your task
-        'schedule': 60.0, # Runs every day at 7:00 AM. For testing Set to 60 seconds
+        'schedule': 10.0, # Runs every day at 7:00 AM. For testing Set to 60 seconds
     },
 }
 

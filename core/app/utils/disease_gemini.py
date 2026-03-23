@@ -6,10 +6,19 @@ load_dotenv()
 # Setup GEMINI API
 import google.generativeai as genai
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
-model = genai.GenerativeModel("gemini-1.5-flash") 
+# model = genai.GenerativeModel("gemini-1.5-flash-latest") 
+
+# 
+from google import genai
+# The client gets the API key from the environment variable `GEMINI_API_KEY`.
+client = genai.Client()
+
 
 def gemini_advice_disease(disease_name, body_part=None, symptoms=None):
     print("INSIDE GEMINI ADVICE")
+    print(body_part)
+    print(symptoms)
+    print(disease_name)
     prompt = f"""
                     Persona: You are an AI Clinical Diagnostic Assistant. Your primary function is to provide a brief, informational assessment based on user-provided data.
 
@@ -25,13 +34,17 @@ def gemini_advice_disease(disease_name, body_part=None, symptoms=None):
                     **Your Task:**
                     Based ONLY on the data provided above, generate a concise 4-5 line assessment. Structure your response exactly as follows, without any extra formatting like markdown bolding:
 
-                    Assessment Category: [Choose ONE: "Self-Care", "non-urgent mediacal condition", or "Serious Condition"]
+                    Assessment Category: [Choose ONE: "Self-Care", "non-urgent medical condition", or "Serious Condition"]
                     Explanation: [1-2 sentence explanation of the predicted condition, {disease_name}]
                     Clinical Reasoning: [1-2 sentence explanation connecting the positive symptoms to the prediction]
              """
-                    
+    print("OUTSIDE TRY")            
     try:
-        response = model.generate_content(prompt)
+        print("INSIDE 1")
+        response = client.models.generate_content(
+        model="gemini-2.5-flash", contents=prompt
+            )
+        # response = model.generate_content(prompt)
         print("RESPONSE:", response)
         raw_advice = response.candidates[0].content.parts[0].text.replace('*', '')
         print('RAW ADVICE:', raw_advice)
@@ -67,5 +80,10 @@ def gemini_advice_disease(disease_name, body_part=None, symptoms=None):
         }
 
     except Exception as e:
+        print(f"---!!! API CALL FAILED !!!---")
+        print(f"ERROR: {e}")
+        if 'response' in locals():
+            print(f"RESPONSE OBJECT: {response}")
         return "Error generating advice!"
+        
 
