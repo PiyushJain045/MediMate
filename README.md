@@ -81,3 +81,15 @@ python manage.py runserver
 celery -A your_project_name worker -l info -P solo
 celery -A your_project_name beat -l info
 ```
+### Screenshots
+<img width="1920" height="1080" alt="Screenshot 2026-03-26 154041" src="https://github.com/user-attachments/assets/5241e855-a31a-49fa-ba39-2ed041d0cde8" />
+
+<img width="1920" height="1080" alt="Screenshot 2026-03-26 154058" src="https://github.com/user-attachments/assets/f33af0df-c485-46a0-b039-3ec50ee77043" />
+
+<img width="1920" height="1080" alt="Screenshot 2026-03-26 154235" src="https://github.com/user-attachments/assets/04a7c107-01f5-47f3-be2b-a0746c5303f2" />
+
+<img width="1920" height="1080" alt="Screenshot 2026-03-26 154257" src="https://github.com/user-attachments/assets/21ff42de-2f1f-42f0-a033-c52cfd707484" />
+
+<img width="1920" height="1080" alt="Screenshot 2026-03-26 155714" src="https://github.com/user-attachments/assets/da0d332a-9d50-4b77-b491-1a035f6a7d5e" />
+
+<img width="1920" height="1080" alt="Screenshot 2026-03-26 155822" src="https://github.com/user-attachments/assets/17c8cac0-87f1-4e63-91a8-5c447b3dc148" />
